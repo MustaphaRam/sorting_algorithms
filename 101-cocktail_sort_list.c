@@ -21,6 +21,7 @@ void swap1(listint_t **list, listint_t *head, listint_t *aux)
 	print_list(*list);
 
 }
+
 /**
  * swap2 - swaps nodes from right to left
  * @list: pointer to list
@@ -85,7 +86,6 @@ void cocktail_sort_list(listint_t **list)
 				else
 					head = head->prev;
 			}
-
 		}
 	}
 }
