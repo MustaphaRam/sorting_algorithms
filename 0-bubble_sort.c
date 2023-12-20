@@ -1,28 +1,35 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
- * bubble_sort - sort list with bubble
- * @array: The array to be printed
- * @size: Number of elements in @array
+ * bubble_sort - sorts an array of integers in ascending order
+ *
+ * @array: The array of integer
+ * @size: The size of the array
+ *
+ * Return: void
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t n = 0, t = size;
-	int holder;
+	size_t i;
+	int tmp, sorted;
 
-	if (array == NULL)
+	if (!array || size == 0)
 		return;
-	for (t = size; t > 0; t--)
-	{
-		for (n = 0; n < size - 1; n++)
+
+	do {
+		sorted = 1;
+		for (i = 0; i < size - 1; i++)
 		{
-			if (array[n] > array[n + 1])
+			if (array[i] > array[i + 1])
 			{
-				holder = array[n];
-				array[n] = array[n + 1];
-				array[n + 1] = holder;
+				sorted = 0;
+				tmp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = tmp;
 				print_array(array, size);
 			}
 		}
-	}
+
+	} while (sorted == 0);
 }
